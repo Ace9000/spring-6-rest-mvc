@@ -74,6 +74,7 @@ public class BeerServiceImpl implements BeerService {
 
         Beer savedBeer = Beer.builder()
                 .id(UUID.randomUUID())
+                .version(1)
                 .createDate(LocalDateTime.now())
                 .updateDate(LocalDateTime.now())
                 .beerName(beer.getBeerName())
