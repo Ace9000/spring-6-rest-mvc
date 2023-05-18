@@ -15,10 +15,18 @@ import java.util.UUID;
 
 @Slf4j
 @AllArgsConstructor
-@Controller
+@RestController
 @RequestMapping("/api/v1/beer")
 public class BeerController {
     private final BeerService beerService;
+
+    @PutMapping("{beerId}")
+    public ResponseEntity updateById(@PathVariable("beerId") UUID beerId, @RequestBody Beer beer) {
+
+        beerService.updateBeerById(beerId, beer);
+
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
 
     //@RequestMapping(method = RequestMethod.POST)
     @PostMapping
